@@ -1,0 +1,68 @@
+
+<table class="table" style="background-color:#022D36;color:white;">
+  <thead>
+    <ul>
+      <li><h3>Date Range:</h3></li>
+      <li>
+        <select class="form-select users" aria-label="Default select example">
+          <option selected>HelloS</option>
+
+          <option value="1">TOMORROW</option>
+          <option value="2">LAST 7 DAYS</option>
+          <option value="3">LAST 30 DAYS</option>
+          <option value="3">LAST 3 MONTHS</option>
+          <option value="3">
+            <a (click)="picker.open()"> Date Picker </a>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date">
+              <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+
+
+          </option>
+          <option value="3">Custom
+          </option>
+        </select>
+      </li>
+      <li>
+
+        <mat-form-field class="mat" apperance="outline">
+          <mat-label>Users</mat-label>
+          <mat-select #userValue (selectionChange)="selectitem($event)">
+            <mat-option *ngFor="let user of user" [value]="user.firstname">
+              {{user.firstname}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </li>
+    </ul>
+  </thead>
+  <tr style="background-color:black;padding-left:12px;padding-right:20px">
+    <th scope="col">Users</th>
+    <th scope="col">Aug01</th>
+    <th scope="col">Aug02</th>
+    <th scope="col">Aug03</th>
+    <th scope="col">Aug04</th>
+    <th scope="col">Aug05</th>
+  </tr>
+
+  <tbody style="margin-right:30px">
+    <tr *ngFor="let user of user">
+      <th>{{user.firstname}}</th>
+
+      <td><input type="number" style="width:75px;height:20px; background-color:#808080;border:0;opacity:0.5" value="0.0" /></td>
+      <td><input type="text" style="width:75px;height:20px; background-color:#808080;border:0;opacity:0.5" value="0.0" /></td>
+      <td><input type="text" style="width:75px;height:20px; background-color:#808080;border:0;opacity:0.5" value="0.0" /></td>
+      <td><input type="text" style="width:75px;height:20px; background-color:#808080;border:0;opacity:0.5" value="0.0" /></td>
+      <td><input type="text" style="width:75px;height:20px; background-color:#808080;border:0;opacity:0.5" value="0.0" /></td>
+
+
+    </tr>
+
+  </tbody>
+</table>
